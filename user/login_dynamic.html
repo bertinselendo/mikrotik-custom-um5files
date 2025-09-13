@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login - VORB</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/output.css" rel="stylesheet" />
+    <script src="../js/generic.js"></script>
+    <script src="../js/login.js"></script>
+    <script>
+      // Always (re-)initialize login form on hash change or page load
+      function callInitLoginFormIfAvailable() {
+        if (typeof initLoginForm === "function") initLoginForm();
+      }
+      window.addEventListener("load", callInitLoginFormIfAvailable);
+      window.addEventListener("hashchange", callInitLoginFormIfAvailable);
+    </script>
+  </head>
+  <body
+    class="min-h-svh flex flex-col items-center justify-center relative text-black"
+    style="
+      background-image: url('../img/bg-02.webp');
+      background-size: cover;
+      background-position: center;
+    "
+  >
+    <!-- Netflix-style background overlay -->
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-white via-zinc-100/70 to-white/90 z-0"
+    ></div>
+
+    <!-- Main content -->
+    <div class="relative z-10 w-full max-w-10/12 md:max-w-sm mx-auto">
+      <div class="flex flex-col items-center">
+        <!-- Netflix-style logo -->
+        <div
+          class="text-teal-600 flex flex-col justify-end items-end leading-8 mb-2"
+        >
+          <p class="text-[58px] font-bold">VORB</p>
+          <p class="mr-1">ONE</p>
+        </div>
+
+        <div
+          class="bg-white/70 rounded-md px-8 py-8 w-full shadow-lg flex flex-col gap-4"
+        >
+          <form
+            onsubmit="loginSubmited(); return false;"
+            class="flex flex-col gap-2"
+          >
+            <div class="flex flex-col gap-2">
+              <input
+                id="username"
+                name="username"
+                type="text"
+                placeholder="code"
+                class="outline-none border border-[#606060] p-3 text-black w-full placeholder-zinc-400 focus-within:border-red-600 ring-red-600 rounded"
+              />
+              <!-- Show a checkbox to reveal the password field -->
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <input
+                    id="has-password"
+                    type="checkbox"
+                    class="accent-teal-600 w-3 h-3"
+                    onclick="document.getElementById('password-field').style.display = this.checked ? 'block' : 'none'"
+                  />
+                  <label
+                    for="has-password"
+                    class="text-black text-xs cursor-pointer select-none"
+                  >
+                    J'ai un mot de passe
+                  </label>
+                </div>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="mot de passe"
+                  style="display: none"
+                  class="outline-none border border-[#606060] p-3 text-black w-full placeholder-zinc-400 focus-within:border-teal-600 ring-teal-600 rounded"
+                />
+              </div>
+            </div>
+            <div id="error-text"></div>
+            <button
+              type="submit"
+              class="mt-0 bg-teal-600 hover:bg-teal-700 text-white text-sm cursor-pointer p-3 rounded transition-colors duration-200"
+            >
+              Se connecter
+            </button>
+          </form>
+        </div>
+
+        <p class="text-zinc-500 text-xs mt-8 text-center">
+          Powered by Bertin Selendo
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

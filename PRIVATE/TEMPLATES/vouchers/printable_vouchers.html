@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      div.voucher {
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 300px;
+        height: 180px;
+        border: 1px solid #904c49;
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        padding: 10px;
+
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        float: left;
+      }
+      div.header {
+        height: 10%;
+      }
+      div.logo {
+        text-align: center;
+        font-weight: bold;
+        color: black;
+        font-size: 12px;
+      }
+      div.logo-link {
+        text-align: center;
+        color: black;
+        font-size: 12px;
+      }
+      div.content table td {
+        padding: 0 10px 0 10px;
+      }
+      .code {
+        font-weight: bold;
+        color: #904c49;
+        text-align: center;
+        font-size: 32px;
+      }
+      div.opt {
+        text-align: center;
+        font-weight: bold;
+        color: black;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+
+      div.footer {
+        margin-top: 15px;
+        font-size: 12px;
+        text-align: center;
+        color: #904c49;
+      }
+      .header img {
+        height: 50%;
+        float: right;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    $(DYNAMIC_START)
+    <div class="voucher">
+      <div class="header">
+        <div class="logo"><span>VORB ZONE</div>
+        <div class="logo-link"><span>http://</span>vorb.zone</div>
+      </div>
+
+      <div class="content">
+        <h2 class="code">$(username)</h2>
+      </div>
+
+      <div class="opt">$(userprofname)</div>
+      <div class="opt">$(userprofendtime)</div>
+
+      <div class="footer">
+        +243 82 13 87 202
+      </div>
+    </div>
+    $(DYNAMIC_END)
+  </body>
+</html>
