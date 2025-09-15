@@ -10,12 +10,12 @@
     <script src="../js/generic.js"></script>
     <script src="../js/login.js"></script>
     <script>
-      // Always (re-)initialize login form on hash change or page load
       function callInitLoginFormIfAvailable() {
         if (typeof initLoginForm === "function") initLoginForm();
       }
-      window.addEventListener("load", callInitLoginFormIfAvailable);
-      window.addEventListener("hashchange", callInitLoginFormIfAvailable);
+      window.onload = function () {
+        callInitLoginFormIfAvailable();
+      };
     </script>
   </head>
   <body
@@ -64,7 +64,7 @@
                     id="has-password"
                     type="checkbox"
                     class="accent-teal-600 w-3 h-3"
-                    onclick="document.getElementById('password-field').style.display = this.checked ? 'block' : 'none'"
+                    onclick="document.getElementById('password').style.display = this.checked ? 'block' : 'none'"
                   />
                   <label
                     for="has-password"

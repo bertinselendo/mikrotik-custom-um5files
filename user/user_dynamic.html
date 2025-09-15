@@ -11,7 +11,7 @@
     <script src="../js/user.js"></script>
   </head>
   <body
-    class="min-h-svh flex flex-col items-center justify-center relative text-black"
+    class="min-h-svh py-8 flex flex-col items-center justify-center relative text-black"
     style="
       background-image: url('../img/bg-02.webp');
       background-size: cover;
@@ -43,11 +43,11 @@
         <!-- Header with menu -->
         <div class="bg-white/70 rounded-md px-6 py-4 w-full shadow-lg mb-6">
           <div class="flex items-center justify-between">
-            <img src="../img/mikrotik_logo.png" class="h-8" alt="Mikrotik Logo" />
+            <img src="../img/mikrotik_logo.png" class="h-6" alt="Mikrotik Logo" />
             <nav class="hidden md:flex space-x-6">
               <a id="menu-status" href="#" onclick="onMenuClick(this); return false;" class="text-teal-600 hover:text-teal-800 font-medium transition-colors">Status</a>
               <a id="menu-sessions" href="#" onclick="onMenuClick(this); return false;" class="text-teal-600 hover:text-teal-800 font-medium transition-colors">Sessions</a>
-              <a id="menu-payments" href="#" onclick="onMenuClick(this); return false;" class="text-teal-600 hover:text-teal-800 font-medium transition-colors">Payments</a>
+              <!-- <a id="menu-payments" href="#" onclick="onMenuClick(this); return false;" class="text-teal-600 hover:text-teal-800 font-medium transition-colors">Payments</a> -->
               <a id="menu-profiles" href="#" onclick="onMenuClick(this); return false;" class="text-teal-600 hover:text-teal-800 font-medium transition-colors">Profiles</a>
               <a id="menu-logout" href="#" onclick="onMenuClick(this); return false;" class="text-red-600 hover:text-red-800 font-medium transition-colors">Logout</a>
             </nav>
@@ -57,12 +57,12 @@
           </div>
 
           <!-- Mobile menu -->
-          <div class="md:hidden mt-4 space-y-2" id="mobile-menu" style="display: none;">
-            <a id="menu-status-mobile" href="#" onclick="onMenuClick(this); return false;" class="block text-teal-600 hover:text-teal-800 font-medium py-2 transition-colors">Status</a>
-            <a id="menu-sessions-mobile" href="#" onclick="onMenuClick(this); return false;" class="block text-teal-600 hover:text-teal-800 font-medium py-2 transition-colors">Sessions</a>
-            <a id="menu-payments-mobile" href="#" onclick="onMenuClick(this); return false;" class="block text-teal-600 hover:text-teal-800 font-medium py-2 transition-colors">Payments</a>
-            <a id="menu-profiles-mobile" href="#" onclick="onMenuClick(this); return false;" class="block text-teal-600 hover:text-teal-800 font-medium py-2 transition-colors">Profiles</a>
-            <a id="menu-logout-mobile" href="#" onclick="onMenuClick(this); return false;" class="block text-red-600 hover:text-red-800 font-medium py-2 transition-colors">Logout</a>
+          <div class="md:hidden mt-4 space-y-1" id="mobile-menu" style="display: none;">
+            <a id="menu-status" href="#" onclick="onMenuClick(this); return false;" class="block text-teal-600 hover:text-teal-800 font-medium py-1 transition-colors">Status</a>
+            <a id="menu-sessions" href="#" onclick="onMenuClick(this); return false;" class="block text-teal-600 hover:text-teal-800 font-medium py-1 transition-colors">Sessions</a>
+            <!-- <a id="menu-payments" href="#" onclick="onMenuClick(this); return false;" class="block text-teal-600 hover:text-teal-800 font-medium py-1 transition-colors">Payments</a> -->
+            <a id="menu-profiles" href="#" onclick="onMenuClick(this); return false;" class="block text-teal-600 hover:text-teal-800 font-medium py-1 transition-colors">Profiles</a>
+            <a id="menu-logout" href="#" onclick="onMenuClick(this); return false;" class="block text-red-600 hover:text-red-800 font-medium py-1 transition-colors">Logout</a>
           </div>
         </div>
 
@@ -82,7 +82,7 @@
                 Profils utilisateur
             </h4>
             <div class="mb-6 overflow-x-auto border border-gray-300 rounded-md p-1 [&_th]:text-left">
-                <table id="status-profiles" class="w-full border-collapse rounded-md">
+                <table id="status-profiles" class="w-full border-collapse rounded-md max-md:text-sm">
                 </table>
             </div>
 
@@ -90,7 +90,7 @@
                 Profils expirés
             </h4>
             <div class="overflow-x-auto border border-gray-300 rounded-md p-1 [&_th]:text-left">
-                <table id="status-exp-profiles" class="w-full border-collapse rounded-md">
+                <table id="status-exp-profiles" class="w-full border-collapse rounded-md max-md:text-sm">
                 </table>
             </div>
         </div>

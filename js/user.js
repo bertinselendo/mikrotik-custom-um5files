@@ -49,6 +49,9 @@ function hideAll() {
   document.getElementById("sessions-sessions").innerHTML = "";
   document.getElementById("buyprofile-buyprofile").innerHTML = "";
   document.getElementById("profile-data").innerHTML = "";
+
+  document.getElementById("mobile-menu").style.display = "none";
+
   // Reset profile limits display
   document.getElementById("profile-limit-download").textContent = "-";
   document.getElementById("profile-limit-upload").textContent = "-";
@@ -135,9 +138,9 @@ function loadStatusData() {
       obj = JSON.parse(responseText); // XXX probably wont work if <= IE7
       if (obj.success) {
         var tableRows =
-          "<tr><th>Name</th><th>State</th><th>Expires after</th><th>Action</th></tr><tbody>";
+          "<tr><th>Nom</th><th>Etat</th><th>Expire dans</th><th>Action</th></tr><tbody>";
         var expTableRows =
-          "<tr><th>Name</th><th>State</th><th>Expired at</th></tr><tbody>";
+          "<tr><th>Nom</th><th>Etat</th><th>Expiré le</th></tr><tbody>";
         // So that we can sort them
         var waitingRows = "";
         var runningRows = "";
@@ -171,7 +174,7 @@ function loadStatusData() {
             waitingRows +=
               '<td><button value="' +
               profiles[i].id +
-              '" onclick="onActivateClick(this)">Activate</button></td>';
+              '" onclick="onActivateClick(this)" style="color: #904c49;">Activate</button></td>';
             waitingRows += "</tr>";
           }
           // 1 - RUNNING
@@ -386,33 +389,32 @@ function loadProfile(profileId) {
     try {
       obj = JSON.parse(responseText); // XXX probably wont work if <= IE7
 
-      console.log("obj.data", obj.data);
       if (obj.success) {
         var tableRows = "";
-        tableRows += "<tr><td>Name:</td><td>" + obj.data.name + "</td></tr>";
-        tableRows += "<tr><td>Price:</td><td>" + obj.data.price + "</td></tr>";
+        tableRows += "<tr><td>Nom:</td><td>" + obj.data.name + "</td></tr>";
+        tableRows += "<tr><td>Prix:</td><td>" + obj.data.price + "</td></tr>";
         tableRows +=
-          "<tr><td>Validity:</td><td>" + obj.data.validity + "</td></tr>";
+          "<tr><td>Validité:</td><td>" + obj.data.validity + "</td></tr>";
         tableRows +=
-          "<tr><td>Starts at:</td><td>" +
+          "<tr><td>Démarre à:</td><td>" +
           UM_PROF_STARTS_AT[obj.data.startsAt] +
           "</td></tr>";
         if (obj.data.canBuy) {
           tableRows +=
             '<tr><td colspan="2"><button onclick="window.location.href=\'#buyprofile:' +
             obj.data.id +
-            "'\">Buy this Profile</button></td></tr>";
+            "'\">Acheter ce profil</button></td></tr>";
         }
 
         document.getElementById("profile-data").innerHTML = tableRows;
 
         // Load profile limits
-        loadProfileLimits(profileId);
+        // loadProfileLimits(profileId);
       } else {
         processFailedResp(obj);
       }
     } catch (e) {
-      alert("Unknown error.");
+      alert("Unknown error profile.");
     }
     unblockGUI();
   });
